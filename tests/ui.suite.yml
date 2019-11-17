@@ -1,0 +1,15 @@
+actor: UiTester
+modules:
+    enabled:
+        - \Helper\Ui
+        - \Helper\QaApi
+        - \Helper\Site
+        - WebDriver
+        - VisualCeption:
+            maximumDeviation: 0.0                                   # deviation in percent
+            saveCurrentImageIfFailure: true                       # if true, VisualCeption saves the current
+    config:
+        WebDriver:
+            url: http://localhost
+            browser: 'chrome'
+            window_size: 1920x1280
