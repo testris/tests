@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Load up .env
+set -o allexport
+[[ -f .env ]] && source .env
+set +o allexport
+
+count=`ls -1 .docker/log/*.log 2>/dev/null | wc -l`
+if [[ ${count} != 0 ]]; then
+    echo "Delete old log files"
+    rm -f ./.docker/log/*.log
+fi
+
+echo "Starting docker"
+docker-compose up -d

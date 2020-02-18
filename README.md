@@ -3,17 +3,17 @@
 
 ##### Поднять селениум сервер в докере:
 ```bash
-sudo docker run --name selenium-server -p 4444:4444 -v /dev/shm:/dev/shm -d -it --rm --network host  selenium/standalone-chrome
+sudo docker run --name selenium-server -v /dev/shm:/dev/shm -d -it --rm --network host  selenium/standalone-chrome:3.5.3-boron
 ```
 
 ##### Запустить тесты:
 ```bash
 ./bin/test-runner.php run [options]
 ```
-``
--e, --env=ENV          Окружение на котором будут ходить тесты (local, test, staging, mtest, production)  
+
+-e, --env=ENV          Окружение на котором будут ходить тесты (local, test, staging, production)  
 -b, --branch[=BRANCH]  Ветка на которой будут ходить тесты  
--g, --group[=GROUP]    Группа тестов. Например тесты только по созданию ордера.  
+-g, --group[=GROUP]    Группа тестов. 
 
 Пример:
 ```bash
@@ -55,8 +55,4 @@ stopsignal=KILL
 numprocs=1
 stderr_logfile=/var/log/consume.err.log
 stdout_logfile=/var/log/consume.out.log
-
-## RabbitMQ
-
-Для тестировани в lib/RabbitMQ/configs/config.local.ini нужно заменить  
 

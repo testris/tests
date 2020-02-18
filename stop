@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Stopping docker"
+docker-compose stop
+
+count=`ls -1 .docker/log/*.log 2>/dev/null | wc -l`
+if [[ ${count} != 0 ]]; then
+    echo "Delete old log files"
+    rm -f ./.docker/log/*.log
+fi
